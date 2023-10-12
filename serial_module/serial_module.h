@@ -26,15 +26,17 @@ public:
     serial_module();
 
 public:
+    QSerialPort *serial = new QSerialPort;
+    QStringList name;
 
     QStringList search_serial();
-    void serial_init(s_uart uart);
+    void serial_init(s_uart uart,QString& name);
 private:
     UINT32 search_uartmapping(QString input);
-    QStringList baud;//波特率
-    QStringList data;//数据位
-    QStringList parity;//校验位
-    QStringList stop;//停止位
+//    QStringList baud;//波特率
+//    QStringList data;//数据位
+//    QStringList parity;//校验位
+//    QStringList stop;//停止位
 };
 
 #endif // SERIAL_MODULE_H

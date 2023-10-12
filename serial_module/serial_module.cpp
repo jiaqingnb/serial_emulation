@@ -14,7 +14,8 @@ serial_module::serial_module()
 
 QStringList serial_module::search_serial()
 {
-    QStringList list;
+    QStringList Itemname;
+
     foreach(const QSerialPortInfo &info,QSerialPortInfo::availablePorts())
     {
         qDebug()<<info.portName()<<info.description();
@@ -22,24 +23,25 @@ QStringList serial_module::search_serial()
         /*如果串口空闲*/
         if(!info.isBusy())
         {
-           list<<info.portName()+info.description();
+           name<<info.portName();
+           Itemname<<info.portName()+info.description();
         }
         else
         {
-            qDebug()<<"串口打开失败";
+            qDebug()<<"系统串口识别失败";
         }
     }
-    return list;
+    return Itemname;
 }
 
-void serial_module::serial_init(s_uart uart)
+void serial_module::serial_init(s_uart uart,QString& name)
 {
-    static QSerialPort *serial;
-    serial = new QSerialPort;
     UINT32 baud;
     UINT32 data;
     UINT32 parity;
     UINT32 stop;
+
+    serial->setPortName(name);
 
     baud = search_uartmapping(uart.baud);
     serial->setBaudRate(static_cast<INT32>(baud));
