@@ -6,6 +6,8 @@
 #include <QAbstractButton>
 #include <QPushButton>
 #include "serial_module/serial_module.h"
+#include "protocol_module/protocol_module.h"
+
 
 
 namespace Ui {
@@ -20,8 +22,9 @@ public:
     explicit setwindow(QWidget *parent = nullptr);
     ~setwindow();
 
-    //QStringList name;
-    serial_module ser;
+    QString treename;
+    serial_module* ser = new serial_module;
+    protocol_module* pro = new protocol_module;
 
 private slots:
     void on_OKbuttonBox_clicked(QAbstractButton *button);

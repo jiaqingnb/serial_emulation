@@ -4,6 +4,7 @@
 
 #include <QDebug>
 
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -21,8 +22,9 @@ MainWindow::~MainWindow()
 void MainWindow::on_pushButton_3_clicked()
 {
     QPalette pal;
+
     /*打开串口*/
-    if(menu.s.ser.serial->open(QIODevice::ReadWrite))
+    if(menu->s->ser->serial->open(QIODevice::ReadWrite))
     {
         pal.setColor(QPalette::Background,Qt::green);
         ui->label_8->setAutoFillBackground(true);
@@ -39,7 +41,13 @@ void MainWindow::on_treeWidget_customContextMenuRequested(const QPoint &pos)
 {
 
    qDebug()<<"右键菜单";
+   QTreeWidgetItem* choiceitem;
 
-   menu.Creat_menu(pos);
+   choiceitem = ui->treeWidget->currentItem();
+   ui->treeWidget->columnCount();
+
+   menu->Creat_menu(pos);
+   choiceitem->setText(0,menu->s->treename);
+
 
 }

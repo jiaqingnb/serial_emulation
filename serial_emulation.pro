@@ -29,14 +29,16 @@ SOURCES += \
         mainwindow.cpp \
     serial_module/serial_module.cpp \
     shortcut_menu/shortcut_menu.cpp \
-    setwindow.cpp
+    setwindow.cpp \
+    protocol_module/protocol_module.cpp
 
 HEADERS += \
         mainwindow.h \
     serial_module/serial_module.h \
     common.h \
     shortcut_menu/shortcut_menu.h \
-    setwindow.h
+    setwindow.h \
+    protocol_module/protocol_module.h
 
 FORMS += \
         mainwindow.ui \

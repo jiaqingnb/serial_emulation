@@ -72,3 +72,50 @@ UINT32 serial_module::search_uartmapping(QString input)
     }
     return output;
 }
+
+UINT8 serial_module::StringToU8(QString input)
+{
+    INT32 len = 0;
+    UINT8 h_value,l_value;
+    INT32 slen = 0;
+    slen = input.length();
+    for(int i = 0;i<slen;i++)
+    {
+        h_value = l_value = 0;
+
+        if(input.toLocal8Bit().data()[i] >= 'a')
+        {
+            h_value = static_cast<UINT8>(input.toLocal8Bit().data()[i] - 'a' +10) ;
+        }
+        else if (input.toLocal8Bit().data()[i] >= 'A')
+        {
+            h_value = static_cast<UINT8>(input.toLocal8Bit().data()[i] - 'A' +10) ;
+        }
+        else {
+            h_value = static_cast<UINT8>(input.toLocal8Bit().data()[i] - '0');
+        }
+
+        if(input.toLocal8Bit().data()[i+1] >= 'a')
+        {
+            l_value = static_cast<UINT8>(input.toLocal8Bit().data()[i+1] - 'a' +10);
+        }
+        else if (input.toLocal8Bit().data()[i] >= 'A')
+        {
+            l_value = static_cast<UINT8>(input.toLocal8Bit().data()[i] - 'A' +10) ;
+        }
+        else {
+            l_value = static_cast<UINT8>(input.toLocal8Bit().data()[i+1] - '0');
+        }
+
+
+        ser_senddata[len++] = h_value*16 + l_value;
+
+        i++;
+        if(i+2 <input.length())
+            i += 1;
+    }
+
+
+
+    return 0;
+}

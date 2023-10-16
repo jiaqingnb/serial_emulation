@@ -26,17 +26,22 @@ public:
     serial_module();
 
 public:
+    /*变量区*/
     QSerialPort *serial = new QSerialPort;
     QStringList name;
+    UINT8 ser_senddata[1024] = {'\0'};
 
+    /*函数区*/
     QStringList search_serial();
+
     void serial_init(s_uart uart,QString& name);
+
+    UINT8 StringToU8(QString input);//一个将字符串转换为U8数组的指针函数
+
 private:
     UINT32 search_uartmapping(QString input);
-//    QStringList baud;//波特率
-//    QStringList data;//数据位
-//    QStringList parity;//校验位
-//    QStringList stop;//停止位
+
+
 };
 
 #endif // SERIAL_MODULE_H

@@ -6,17 +6,22 @@
 #include <qaction.h>
 #include "setwindow.h"
 
-
+typedef struct
+{
+    const char *name;
+    UINT8 index;
+}menu_name;
 
 class shortcut_menu : public QMainWindow
 {
     Q_OBJECT
 public:
     shortcut_menu();
+    ~shortcut_menu();
 
 public:
 
-    setwindow s;
+    setwindow* s = new setwindow;
     //函数1：创建菜单
     void Creat_menu(const QPoint &pos);
 

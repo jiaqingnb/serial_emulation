@@ -16,7 +16,8 @@ public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
-    shortcut_menu menu;
+    shortcut_menu* menu = new shortcut_menu;
+
 
 private slots:
     void on_pushButton_3_clicked();
