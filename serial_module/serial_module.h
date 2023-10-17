@@ -3,7 +3,7 @@
 
 #include <QtSerialPort/QSerialPort>
 #include <QtSerialPort/QSerialPortInfo>
-#include "common.h"
+#include "CommonTypes.h"
 
 typedef struct
 {

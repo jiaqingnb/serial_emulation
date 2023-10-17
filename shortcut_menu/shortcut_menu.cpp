@@ -39,19 +39,11 @@ void shortcut_menu::Creat_menu(const QPoint &pos)
 {
    Q_UNUSED(pos);
    QMenu menuList;
-   QAction* a = new QAction;
-   static uint8_t mjq = 0;
-
-   if(mjq == 1)
-   {
-      mjq++;
-   }
 
    menuList.addAction("设置",this,&shortcut_menu::on_menu_clicked);
    //menuList->addAction(cutname[1].name,this,&shortcut_menu::on_menu_clicked);
 
    menuList.exec(QCursor::pos());
 
-mjq++;
 }
 

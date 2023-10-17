@@ -24,21 +24,54 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 CONFIG += c++11
 
+INCLUDEPATH += \
+                $$PWD/CommonLib/COMMON \
+                $$PWD/CommonLib
+
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
     serial_module/serial_module.cpp \
     shortcut_menu/shortcut_menu.cpp \
     setwindow.cpp \
-    protocol_module/protocol_module.cpp
+    protocol_module/protocol_module.cpp \
+    CommonLib/COMMON/CbtcVersion.c \
+    CommonLib/COMMON/CommonBit.c \
+    CommonLib/COMMON/CommonCRC.c \
+    CommonLib/COMMON/CommonMemory.c \
+    CommonLib/COMMON/CommonQueue.c \
+    CommonLib/COMMON/CommonRecord.c \
+    CommonLib/COMMON/CommonStack.c \
+    CommonLib/COMMON/Convert.c \
+    CommonLib/COMMON/CRC16.c \
+    CommonLib/COMMON/CRC32.c \
+    CommonLib/COMMON/DataPackage.c \
+    CommonLib/COMMON/FFFE.c \
+    CommonLib/COMMON/Translate0203.c \
+    CommonLib/COMMON/VobcNetPack.c
 
 HEADERS += \
         mainwindow.h \
     serial_module/serial_module.h \
-    common.h \
     shortcut_menu/shortcut_menu.h \
     setwindow.h \
-    protocol_module/protocol_module.h
+    protocol_module/protocol_module.h \
+    CommonLib/COMMON/CbtcVersion.h \
+    CommonLib/COMMON/CommonBit.h \
+    CommonLib/COMMON/CommonCRC.h \
+    CommonLib/COMMON/CommonMemory.h \
+    CommonLib/COMMON/CommonQueue.h \
+    CommonLib/COMMON/CommonRecord.h \
+    CommonLib/COMMON/CommonStack.h \
+    CommonLib/COMMON/CommonTypes.h \
+    CommonLib/COMMON/Convert.h \
+    CommonLib/COMMON/CRC16.h \
+    CommonLib/COMMON/CRC32.h \
+    CommonLib/COMMON/DataPackage.h \
+    CommonLib/COMMON/FFFE.h \
+    CommonLib/COMMON/Translate0203.h \
+    CommonLib/COMMON/VobcNetPack.h \
+    CommonLib/CommonConfig.h \
 
 FORMS += \
         mainwindow.ui \

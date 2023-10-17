@@ -15,9 +15,9 @@ protocol_module::protocol_module()
 void protocol_module::protocol_init(s_protocol t_pro)
 {
     qDebug()<<t_pro.device<<t_pro.protocol<<t_pro.cycle;
-    UINT32 device;
-    UINT32 protocol;
-    UINT32 cycle;
+    uint32_t device;
+    uint32_t protocol;
+    uint32_t cycle;
 
     device = search_protocolmapping(t_pro.device);
 
@@ -27,10 +27,10 @@ void protocol_module::protocol_init(s_protocol t_pro)
     qDebug()<<device<<protocol<<cycle;
 }
 
-UINT32 protocol_module::search_protocolmapping(QString input)
+uint32_t protocol_module::search_protocolmapping(QString input)
 {
-    UINT8 i = 0;
-    UINT32 output = 0xffffffff;
+    uint8_t i = 0;
+    uint32_t output = 0xffffffff;
     for (i = 0;i<20;i++)
     {
         if(protocolmap[i].input == input)

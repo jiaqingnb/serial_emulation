@@ -1,7 +1,6 @@
 #ifndef PROTOCOL_MODULE_H
 #define PROTOCOL_MODULE_H
 
-#include "common.h"
 #include <QString>
 
 #define APP_USE_RSSP1 (1u)  /*使用RSSP-1协议 */
@@ -11,7 +10,7 @@
 typedef struct
 {
   QString input;
-  UINT32  output;
+  uint32_t  output;
 }s_protocolmap;
 
 typedef struct
@@ -30,7 +29,7 @@ public:
 
     void protocol_init(s_protocol t_pro);//协议配置初始化
 private:
-    UINT32 search_protocolmapping(QString input);
+    uint32_t search_protocolmapping(QString input);
 
 };
 
