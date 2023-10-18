@@ -9,5 +9,6 @@ int main(int argc, char *argv[])
     w.show();
     w.setWindowTitle("串口仿真工具 V1.0.0");
 
+
     return a.exec();
 }
