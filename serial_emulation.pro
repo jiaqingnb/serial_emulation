@@ -45,6 +45,7 @@ INCLUDEPATH += \
                 $$PWD/NET_PRTCL/sfp/common_sfp_record_config \
                 $$PWD/CM_SFP_CFG \
                 $$PWD/MSCP_COMMON \
+                $$PWD/SFP \
 
 SOURCES += \
         main.cpp \
@@ -109,7 +110,10 @@ SOURCES += \
     MSCP_COMMON/CM_Memory.c \
     MSCP_COMMON/CM_Queue.c \
     MSCP_COMMON/CM_Ring.c \
-    MSCP_COMMON/CM_VobcNetPack.c
+    MSCP_COMMON/CM_VobcNetPack.c \
+    thread/my_thread.cpp \
+    SFP/PLFM_CycleTime_Config.c \
+    SFP/MSCP_ProtocolHandler.c
 
 HEADERS += \
         mainwindow.h \
@@ -195,7 +199,10 @@ HEADERS += \
     MSCP_COMMON/CM_Queue.h \
     MSCP_COMMON/CM_Ring.h \
     MSCP_COMMON/CM_Types.h \
-    MSCP_COMMON/CM_VobcNetPack.h
+    MSCP_COMMON/CM_VobcNetPack.h \
+    thread/my_thread.h \
+    SFP/PLFM_CycleTime_Config.h \
+    SFP/MSCP_ProtocolHandler.h
 
 FORMS += \
         mainwindow.ui \

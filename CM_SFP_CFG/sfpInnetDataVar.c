@@ -40,33 +40,6 @@ UINT8 vSfpInnetDataBuf[] =
  /*VOBC1-VOBC2*/      0X55,   1,               0x55,      0x00,0xC8,  0x00,0xC8,   0x00,0xC8,       0x55,   2,             0x55,      0x00,0xC8,  0x00,0xC8,  0x02
 
 };
-#elif defined(OC_ALL)
-
-const UINT8 vSfpInnetDataBuf[] = 
-{
-	   
- 0,8,/*不同设备通信关系表记录个数*/
- /*记录的格式如下:*/
- /*                           发起方                                                        发起方发送数据                                 发起方报文                                         发起方报文                                          发起方接收Ack                  跟随方                                                                        跟随方发送数据                                            跟随方运行                                          跟随方报文                                   此通信关系中成功发送           */
- /*                          设备类型                                                      通信类型                                              发送周期长度                                      最大延时                                               报文最大延时差                                                                设备类型                                                                        通信类型                                                     周期长度                                              最大延时                                        一包数据所需最小周期数    */
- /*MASTER->IPB*/             0x55,              0x55,             0x01,0x2C,         0x01,0x2C,         0x01,0x2C,          MSCP_BOARD_MASK_IPB,             0x55,              0x00,0x64,        0x01,0x2C,        0x02,
- /*MASTER->OPB*/             0x55,              0x55,             0x01,0x2C,         0x01,0x2C,         0x01,0x2C,          MSCP_BOARD_MASK_OPB,             0x55,              0x00,0x64,        0x01,0x2C,        0x02,
- /*MASTER->TDPC*/            0x55,              0x55,             0x01,0x2C,         0x01,0x2C,         0x01,0x2C,          MSCP_BOARD_MASK_OC_SIG,          0x55,              0x00,0x96,        0x01,0x2C,        0x02,
- /*MASTER->SIG*/             0x55,              0x55,             0x01,0x2C,         0x01,0x2C,         0x01,0x2C,          MSCP_BOARD_MASK_PDTC,            0x55,              0x00,0x64,        0x01,0x2C,        0x02,
- /*MASTER->SWITCH_4*/        0x55,              0x55,             0x01,0x2C,         0x01,0x2C,         0x01,0x2C,          MSCP_BOARD_MASK_OCSWITCH_4,      0x55,              0x00,0x96,        0x01,0x2C,        0x02,
- /*MASTER->SWITCH_5*/        0x55,              0x55,             0x01,0x2C,         0x01,0x2C,         0x01,0x2C,          MSCP_BOARD_MASK_OCSWITCH_5,      0x55,              0x00,0x96,        0x01,0x2C,        0x02,
- /*MASTER->Ipb1    */        0x55,              0x55,             0x01,0x2C,         0x01,0x2C,         0x01,0x2C,          MSCP_BOARD_MASK_SCATTERIPB,      0x55,              0x00,0x64,        0x01,0x2C,        0x02,
- /*MASTER->opb1    */        0x55,              0x55,             0x01,0x2C,         0x01,0x2C,         0x01,0x2C,          MSCP_BOARD_MASK_SCATTEROPB,      0x55,              0x00,0x64,        0x01,0x2C,        0x02,
- 0,2,/*相同设备通信关系表记录个数*/
- /*记录的格式如下:*/
- /*                   发起方  发起方              发起方发送数据        发起方报文              发起方报文 发起方接收Ack    跟随方  跟随方                       跟随方发送数据  跟随方运行  跟随方报文  此通信关系中成功发送           */
- /*                   设备类型 设备ID   通信类型                   发送周期长度           最大延时  报文最大延时差              设备类型 设备ID       通信类型      周期长度    最大延时   一包数据所需最小周期数     */
- /*AOM1->AOM2*/       0x56,   1,    0x55,      0x00,0xC8,  0x00,0xC8,          0x00,0xC8,       0x56,   2,             0x55,      0x00,0xC8,  0x00,0xC8,  0x02,
- /*ZC1->ZC2*/         0x55,   1,    0x55,      0x00,0xC8,  0x00,0xC8,          0x00,0xC8,       0x55,   2,             0x55,      0x00,0xC8,  0x00,0xC8,  0x02
-
-};
-#else
-const UINT8 vSfpInnetDataBuf[] = {0};
 
 #endif
 
