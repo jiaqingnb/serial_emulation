@@ -3,6 +3,7 @@
 #include "shortcut_menu/shortcut_menu.h"
 #include "thread/my_thread.h"
 
+
 #include <QDebug>
 
 
@@ -10,6 +11,7 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
+    udp = new UDP_module;
     my_thread* b = new my_thread;
     b->start();
     ui->setupUi(this);
@@ -49,4 +51,15 @@ void MainWindow::on_treeWidget_customContextMenuRequested(const QPoint &pos)
    choiceitem->setText(0,menu->s->treename);
 
 
+}
+//SFP协议的UDP发送按钮
+void MainWindow::on_pushButton_4_clicked()
+{
+  QString scr_ip = ui->Initiator_IP->text();
+  uint16_t scr_port = static_cast<uint16_t>(ui->Initiator_Port->text().toUInt());
+  QString des_ip = ui->Follower_IP->text();
+  uint16_t des_port = static_cast<uint16_t>(ui->Follower_Port->text().toUInt());
+
+  qDebug()<<scr_ip<<scr_port;
+  udp->UDP_Init(scr_ip,scr_port,des_ip,des_port);
 }

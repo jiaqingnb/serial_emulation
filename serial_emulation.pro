@@ -5,6 +5,7 @@
 #-------------------------------------------------
 
 QT       += core gui serialport
+QT       += network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -46,6 +47,7 @@ INCLUDEPATH += \
                 $$PWD/CM_SFP_CFG \
                 $$PWD/MSCP_COMMON \
                 $$PWD/SFP \
+                $$PWD/UDP_module \
 
 SOURCES += \
         main.cpp \
@@ -113,7 +115,8 @@ SOURCES += \
     MSCP_COMMON/CM_VobcNetPack.c \
     thread/my_thread.cpp \
     SFP/PLFM_CycleTime_Config.c \
-    SFP/MSCP_ProtocolHandler.c
+    SFP/MSCP_ProtocolHandler.c \
+    UDP_module/udp_module.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -202,7 +205,8 @@ HEADERS += \
     MSCP_COMMON/CM_VobcNetPack.h \
     thread/my_thread.h \
     SFP/PLFM_CycleTime_Config.h \
-    SFP/MSCP_ProtocolHandler.h
+    SFP/MSCP_ProtocolHandler.h \
+    UDP_module/udp_module.h
 
 FORMS += \
         mainwindow.ui \
